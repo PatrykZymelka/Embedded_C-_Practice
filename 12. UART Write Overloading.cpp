@@ -97,51 +97,57 @@ Constraints:
     Buffer input values must be treated as raw byte values, not ASCII characters
 */
 #include <iostream>
-#include <string>
 #include <cstdint>
+#include <string>
 
-void write(char c){
+void write(uint8_t c){
     std::cout << c;
 }
 
-void write(string s){
-    std::cout << s;
+void write(std::string s){
+    std:: cout << s;
 }
 
-void write(int8_t arr[]){
-    for(int i = 0; i < arr.length;i++){
-        std::cout << arr[i] << " ";
+void write(uint8_t arr[], int len){
+    for(int i = 0; i < len; i++){
+        std::cout << arr[i];
     }
 }
 
 int main(){
-    int type;
-    std::cin >> type;
-
-    switch(type){
+    int val;
+    std::cin >> val;
+    switch(val){
         case 1:
-            char c;
-            std::cin >> c;
-            write(c);
+            {
+            uint8_t byte;
+            std::cin >> byte;
+            write(byte);
             break;
-
+            }
         case 2:
-            string s;
+            {
+            std::string s;
             std::cin >> s;
             write(s);
             break;
-
+            }
         case 3:
+            {
+            
             int n;
             std::cin >> n;
-            int arr[n];
+                
+            uint8_t arr[n];
+
             for(int i = 0; i < n; i++){
-                cin >> arr[i];
+                std::cin >> arr[i]; 
             }
-            write(arr);
+            write(arr, n);
             break;
+            }
     }
 
-    return 0;
 
+    return 0;
 }

@@ -54,24 +54,23 @@ The read-only overload must not modify the input
 
 #include <iostream>
 
-void process(const int & x){
-    std::cout << "readonly";
-}
 void process(int & x){
-    x *= 2;
+    x = x*2;
+    std::cout << x << "\n";   
+}
+
+void process(const int & x){
+    std::cout << "read only\n";    
 }
 
 int main(){
     int x;
     std::cin >> x;
-    if(x < 0){
-        process(static_cast<const int&>(x));
-    }
-    else{
+    if(x >= 0){
         process(x);
     }
-
-    std::cout << x << std::endl;
-
+    else{
+        process((const int&)x);
+    }
     return 0;
 }

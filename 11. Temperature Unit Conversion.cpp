@@ -46,18 +46,17 @@ Output:
 */
 #include <iostream>
 
-void readTemp(int raw){
-    std::cout << raw << std::endl;
+float readTemp(int raw){
+    return raw / 10.0f;
 }
 
-void readTemp(int raw, char c){
-    if(c == 'F'){
-        raw = raw * 1.8 + 32;
-        std::cout << raw;
+float readTemp(int raw, char unit){
+
+    if(unit == 'F'){
+        return (raw/10.0f * 1.8 + 32);
     }
-    else{
-        std::cout << raw;
-    }
+    
+    return raw/10.0f;
 }
 
 
@@ -68,12 +67,11 @@ int main(){
     std::cin >> c;
 
     if(c == 'D'){
-        readTemp(raw);
+        std::cout << readTemp(raw);
     }
     else{
-        readTemp(raw, c);
+        std::cout << readTemp(raw,c);
     }
-
 
 
     return 0;

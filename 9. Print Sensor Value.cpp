@@ -30,22 +30,25 @@ Value=3.75
 */
 #include <iostream>
 
-void printValue(int x){
-    std::cout << x << std::endl;
+void printValue(int value){
+    std::cout << "Value = " << value << std::endl;
 }
 
-void printValue(float x){
-    std::cout << x << std::endl;
+void printValue(float value){
+    std::cout << "Value = " << value << std::endl;
 }
 
 int main(){
-    int x;
-    std::cin >> x;
-    float f;
-    std::cin >> f;
 
-    printValue(x);
-    printValue(f);
+    float val;
+    std::cin >> val;
+    if(val == (int)val){
+        printValue((int)val);
+    }
+    else{
+        printValue(val);
+    }
+
 
     return 0;
 }

@@ -61,22 +61,25 @@ Constraints:
 
 #include <iostream>
 
-int configureTimer(int frequency, int prescaler = 1){
-    int result = frequency / prescaler;
+int func(int frequency, int prescaler = 1){
+    int result;
+    result = frequency/prescaler;
     return result;
 }
 
 int main(){
 
-    int frequency, mode, result;
+    int frequency, mode;
+
     std::cin >> frequency >> mode;
+    int result;
     if(mode == 0){
-        result = configureTimer(frequency);
+        result = func(frequency);
     }
     else if(mode == 1){
         int prescaler;
         std::cin >> prescaler;
-        result = configureTimer(frequency,prescaler);
+        result = func(frequency,prescaler); 
     }
     std::cout << result << std::endl;
 
