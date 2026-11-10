@@ -45,7 +45,6 @@ Error
 
 #include <iostream>
 #include <string>
-#include <vector>
 
 enum class State{
 
@@ -76,16 +75,12 @@ int main(){
 
         if(s == State::Idle && input == "start"){
             s = State::Busy;
-            toString(s);
         }
         else if(s == State::Busy && input == "done"){
             s = State::Idle;
-            toString(s);
         }
         else if(s == State::Busy && input == "fail"){
             s = State::Error;
-            toString(s);
-            break;
         }
     }
     std::cout << toString(s);

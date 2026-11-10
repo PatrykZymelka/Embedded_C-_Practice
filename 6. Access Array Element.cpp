@@ -45,8 +45,8 @@ int & get_element(int arr[], int index){
 
 int main(){
     int arr[10];
-    int index;
-    std::cin >> index;
+    int index, value;
+    std::cin >> index >> value;
 
     for(int i = 0; i < 10; i++){
         std::cin >> arr[i];
